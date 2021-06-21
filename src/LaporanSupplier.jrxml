@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="898b0e15-5e60-4e69-8f2b-d0ff44c07ee8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="26"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tbl_supplier.`id_supplier` AS tbl_supplier_id_supplier,
+     tbl_supplier.`kd_pembelian` AS tbl_supplier_kd_pembelian,
+     tbl_supplier.`nama_supplier` AS tbl_supplier_nama_supplier,
+     tbl_supplier.`nope_supplier` AS tbl_supplier_nope_supplier,
+     tbl_supplier.`alamat` AS tbl_supplier_alamat,
+     tbl_pembelian.`kd_pembelian` AS tbl_pembelian_kd_pembelian,
+     tbl_pembelian.`kd_barang` AS tbl_pembelian_kd_barang,
+     tbl_pembelian.`id_user` AS tbl_pembelian_id_user,
+     tbl_pembelian.`tgl_pembelian` AS tbl_pembelian_tgl_pembelian,
+     tbl_pembelian.`jmlh_beli` AS tbl_pembelian_jmlh_beli,
+     tbl_pembelian.`total_beli` AS tbl_pembelian_total_beli
+FROM
+     `tbl_pembelian` tbl_pembelian INNER JOIN `tbl_supplier` tbl_supplier ON tbl_pembelian.`kd_pembelian` = tbl_supplier.`kd_pembelian`]]>
+	</queryString>
+	<field name="tbl_supplier_id_supplier" class="java.lang.String"/>
+	<field name="tbl_supplier_kd_pembelian" class="java.lang.String"/>
+	<field name="tbl_supplier_nama_supplier" class="java.lang.String"/>
+	<field name="tbl_supplier_nope_supplier" class="java.lang.String"/>
+	<field name="tbl_supplier_alamat" class="java.lang.String"/>
+	<background>
+		<band height="575" splitType="Stretch">
+			<image vAlign="Bottom">
+				<reportElement mode="Opaque" x="0" y="234" width="85" height="241" backcolor="#000000" uuid="9e832c74-bd7f-4fe9-a630-7bfddc7a2b83"/>
+				<imageExpression><![CDATA["silhouette2.jpg"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="-20" y="234" width="20" height="241" backcolor="#000000" uuid="d5aa2cfe-3bfe-4750-b3bb-8c3b35eb7ef5"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="17b0c519-9bff-4ee7-a6da-d0d209a97054"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="811dfca6-722b-4579-8a44-97fadddb2194"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="7dfceed7-d522-4fbe-862e-12eec606867c"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="c7be16be-70dc-4261-b334-2e09713b014e"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="c962f207-6b5d-4056-85bb-06d58b01f7fc"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="44" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[DATA SUPPLIER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="de1a6a6b-5de4-4cb0-a556-bcb31e9867c1"/>
+				<textElement textAlignment="Right">
+					<font size="26" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Kasir Brilian]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="e8718f75-6896-4e4c-bb12-4dbe07129803"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="141" height="15" uuid="70ab0fe6-5f6b-4872-8011-a9ce522493ee"/>
+					<text><![CDATA[ID_SUPPLIER]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="141" y="0" width="141" height="15" uuid="b320446c-1e34-46f3-a79e-809847b3278a"/>
+					<text><![CDATA[KD_PEMBELIAN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="282" y="0" width="141" height="15" uuid="670f47f2-89f9-4bac-9422-fb813e1cbc38"/>
+					<text><![CDATA[NAMA_SUPPLIER]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="423" y="0" width="141" height="15" uuid="f90405fb-1baf-4799-9de6-233adcbf55a4"/>
+					<text><![CDATA[NO HANDPHONE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="564" y="0" width="141" height="15" uuid="695f7c15-3821-49ae-8ba3-f0899db673ef"/>
+					<text><![CDATA[ALAMAT]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="9098a0f7-7a91-478f-9d2e-95b05db12f37"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="141" height="15" uuid="4466ddb0-b43c-4573-bb89-be2a50aa7d66"/>
+					<textFieldExpression><![CDATA[$F{tbl_supplier_id_supplier}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="141" y="0" width="141" height="15" uuid="29bf931e-f4a2-43b4-bd8f-88c9b999f9b0"/>
+					<textFieldExpression><![CDATA[$F{tbl_supplier_kd_pembelian}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="282" y="0" width="141" height="15" uuid="cf5744e2-02ff-4686-a905-ccbed24667bb"/>
+					<textFieldExpression><![CDATA[$F{tbl_supplier_nama_supplier}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="423" y="0" width="141" height="15" uuid="7259cb5c-5595-4b50-9d72-b70f6fc74e9f"/>
+					<textFieldExpression><![CDATA[$F{tbl_supplier_nope_supplier}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="564" y="0" width="141" height="15" uuid="e8a7e1b4-5493-4332-a444-98fc8a72b53e"/>
+					<textFieldExpression><![CDATA[$F{tbl_supplier_alamat}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="dfb64ae5-f1ee-4806-88ae-e745563709ab"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="b4a9d935-264a-4631-b965-a078ca44ba3b"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="0" width="267" height="20" uuid="44b78606-e7b3-458b-9507-6d8ec54a34be"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Silhouette Title Report]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

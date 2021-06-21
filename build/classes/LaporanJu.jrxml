@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b7ba6a3-2517-45ac-810c-039344408ce6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tbl_penjualan.`nota` AS tbl_penjualan_nota,
+     tbl_penjualan.`kd_barang` AS tbl_penjualan_kd_barang,
+     tbl_penjualan.`id_user` AS tbl_penjualan_id_user,
+     tbl_penjualan.`tgl_penjualan` AS tbl_penjualan_tgl_penjualan,
+     tbl_penjualan.`jmlh_barang_jual` AS tbl_penjualan_jmlh_barang_jual,
+     tbl_penjualan.`total_jual` AS tbl_penjualan_total_jual,
+     tbl_barang.`kd_barang` AS tbl_barang_kd_barang,
+     tbl_barang.`nama_barang` AS tbl_barang_nama_barang,
+     tbl_barang.`harga_jual` AS tbl_barang_harga_jual,
+     tbl_barang.`harga_beli` AS tbl_barang_harga_beli,
+     tbl_barang.`stok` AS tbl_barang_stok,
+     tbl_user.`ID_USER` AS tbl_user_ID_USER,
+     tbl_user.`ID_LEVEL` AS tbl_user_ID_LEVEL,
+     tbl_user.`NAMA_USER` AS tbl_user_NAMA_USER,
+     tbl_user.`JK` AS tbl_user_JK,
+     tbl_user.`NOPE` AS tbl_user_NOPE,
+     tbl_user.`USERNAME` AS tbl_user_USERNAME,
+     tbl_user.`PASSWORD` AS tbl_user_PASSWORD
+FROM
+     `tbl_barang` tbl_barang INNER JOIN `tbl_penjualan` tbl_penjualan ON tbl_barang.`kd_barang` = tbl_penjualan.`kd_barang`
+     INNER JOIN `tbl_user` tbl_user ON tbl_penjualan.`id_user` = tbl_user.`ID_USER`]]>
+	</queryString>
+	<field name="tbl_penjualan_nota" class="java.lang.String"/>
+	<field name="tbl_barang_nama_barang" class="java.lang.String"/>
+	<field name="tbl_user_NAMA_USER" class="java.lang.String"/>
+	<field name="tbl_penjualan_tgl_penjualan" class="java.sql.Date"/>
+	<field name="tbl_penjualan_jmlh_barang_jual" class="java.lang.Integer"/>
+	<field name="tbl_penjualan_total_jual" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="a8afe749-e18e-4582-9da9-d2d8a177b54a"/>
+				<imageExpression><![CDATA["leaf_banner_gray.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="270" height="33" uuid="7f4ad2b5-28c7-4348-b0bd-6a7254a94e97"/>
+				<textElement verticalAlignment="Middle">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[DATA PENJUALAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="140" y="42" width="157" height="22" uuid="c15f7297-e300-4595-934a-3ddfff5a4915"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Kasir Brilian]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="7943d902-342a-4002-a620-75bfc3aaa96d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="92" height="15" uuid="c0143d49-ffad-4f90-8b81-ee54750f338c"/>
+				<text><![CDATA[NOTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="19" width="92" height="15" uuid="745157e4-1bbf-402c-86ee-3f4b331f4cdd"/>
+				<text><![CDATA[NAMA_BARANG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="19" width="92" height="15" uuid="43ebcbb9-ce9d-4a4c-a192-114b4326d6df"/>
+				<text><![CDATA[NAMA_USER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="92" height="15" uuid="1da7ac0f-59c4-489f-bf16-93529129ecc0"/>
+				<text><![CDATA[TGL_PENJUALAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="19" width="92" height="15" uuid="b0fedf2c-6bb6-4202-b4c5-3cbb7bc537c7"/>
+				<text><![CDATA[JUMLAH JUAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="19" width="92" height="15" uuid="6d4cc20b-5bf8-4080-b93c-0dd33158f364"/>
+				<text><![CDATA[TOTAL JUAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="48c28204-0812-45a3-9fba-a6592b5aad28"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="34acb572-0328-4767-83d6-351d633fd10f"/>
+				<textFieldExpression><![CDATA[$F{tbl_penjualan_nota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="80cf4cba-6223-42ef-9224-59a5fdf13308"/>
+				<textFieldExpression><![CDATA[$F{tbl_barang_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="08df9c84-e214-4f9e-8df1-fc86361b7ccd"/>
+				<textFieldExpression><![CDATA[$F{tbl_user_NAMA_USER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="e6b3e9d2-55f8-42c3-b746-eb73b3d3e3f0"/>
+				<textFieldExpression><![CDATA[$F{tbl_penjualan_tgl_penjualan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="a1a1296c-81e2-4d36-ae17-a636ee4db361"/>
+				<textFieldExpression><![CDATA[$F{tbl_penjualan_jmlh_barang_jual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="b80c2f69-03f1-4789-980f-2ad3c2a5d828"/>
+				<textFieldExpression><![CDATA[$F{tbl_penjualan_total_jual}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="82ffdf8f-cb28-4240-b388-2904c18384ac"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="7fcbcbc0-759a-479d-8373-505af986a172"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="d80fd57c-5dea-4c5c-b0e7-2a31717c9aa0"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="f420af25-0167-48b2-9351-885d13280601"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
